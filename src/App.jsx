@@ -3,8 +3,8 @@ import "./App.css";
 import axios from "axios";
 
 function App() {
-  const [data, setData] = useState(null);
-  const [countriesData, setCountriesData] = useState(null);
+  const [data, setData] = useState([]);
+  const [countriesData, setCountriesData] = useState([]);
   const [input, setInput] = useState("");
 
   const URL = "https://0b9f457a-c7f4-4a28-9f68-2fe10314cedd.mock.pstmn.io/crio";
@@ -61,7 +61,7 @@ function App() {
       <div className="cardContainer">
         {countriesData &&
           countriesData.map((item, index) => (
-            <div key={index} className="card">
+            <div key={index} className="countryCard">
               <img src={item.png} alt="country flag" />
               <div>{item.common}</div>
             </div>
