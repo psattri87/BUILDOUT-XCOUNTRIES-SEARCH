@@ -21,8 +21,7 @@ function App() {
       const response = await axios.get(URL);
       if (response.status === 200) {
         setData(response.data);
-        // setCountriesData(response.data);
-        console.log(response.data);
+        setCountriesData(response.data);
       }
     } catch (error) {
       console.log(error);
@@ -36,7 +35,7 @@ function App() {
       if(input===""){
         setCountriesData(data);
       }else{
-        const filteredData = data.filter((item) => item.common.toLowerCase().startsWith(input.toLowerCase()));
+        const filteredData = data.filter((item) => item.common.toLowerCase().includes(input.toLowerCase()));
         setCountriesData(filteredData);
       }
     }
